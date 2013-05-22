@@ -10,6 +10,7 @@ ns.PubSub = function() {
 	// private functions
 	function newq(event)
 	{
+		/*jshint boss:true */
 		return events[event] = {};
 	}
 
@@ -73,4 +74,4 @@ ns.PubSub = function() {
 	};
 };
 
-}(window.datibbaw = window.datibbaw || {}));
+})(window.datibbaw = window.datibbaw || {});
