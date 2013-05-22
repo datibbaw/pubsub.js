@@ -1,0 +1,38 @@
+{
+  "name": "pubsub.js",
+  "version": "0.0.1",
+  "description": "Tiny subscriber and emitter framework for JavaScript.",
+  "homepage": "https://github.com/datibbaw/pubsub.js",
+  "keywords": [
+    "pubsub",
+    "events"
+  ],
+  "maintainers": [
+    {
+      "name": "datibbaw",
+      "web": "https://github.com/datibbaw"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "timotheeg",
+      "web": "https://github.com/timotheeg"
+    } 
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/datibbaw/pubsub.js"
+    }
+  ],
+  "github": "https://github.com/datibbaw/pubsub.js",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-qunit": "*"
+  },
+  "scripts": {
+    "test": "node_modules/grunt-cli/bin/grunt test"
+  }
+}
