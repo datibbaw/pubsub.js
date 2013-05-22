@@ -1,4 +1,5 @@
 (function(ns) {
+'use strict';
 
 ns.PubSub = function() {
 	// private variables
@@ -51,7 +52,7 @@ ns.PubSub = function() {
 			var wrapper = function() {
 				fn.apply(fn, arguments);
 				remove(event, fn);
-			}
+			};
 
 			// wrapper function shares guid with fn
 			wrapper[expando] = fn[expando] || (fn[expando] = ++guid);
@@ -70,6 +71,6 @@ ns.PubSub = function() {
 			}
 		}
 	};
-}
+};
 
 }(window.datibbaw = window.datibbaw || {}));
