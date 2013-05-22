@@ -1,3 +1,5 @@
+void function(datibbaw) {
+
 test('Basic test', function() {
   var pubsub = datibbaw.PubSub();
 
@@ -79,3 +81,5 @@ test('Special events', function() {
 
 	delete x.constructor[hitter.guid];
 });
+
+}(this);

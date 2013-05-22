@@ -1,7 +1,7 @@
-(function(ns) {
+void function(ns) {
 'use strict';
 
-ns.PubSub = function() {
+var pubsub = function() {
 	// private variables
 	var events = {},
 	expando = 'ps' + ("" + Math.random()).substr(2),
@@ -74,4 +74,12 @@ ns.PubSub = function() {
 	};
 };
 
-})(window.datibbaw = window.datibbaw || {});
+if (typeof exports === 'object') {
+	module.exports = pubsub();
+} else if (typeof define === 'function' && define.amd) {
+	define(pubsub);
+} else {
+	ns.PubSub = pubsub;
+}
+
+}((typeof window === 'object' && window) || this);
