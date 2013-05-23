@@ -17,15 +17,21 @@ module.exports = function(grunt) {
 
     qunit: 
     {
-      all: ['tests/**/*.html']
+      all: ['tests/qunit-test.html']
+    },
+
+    nodeunit: 
+    {
+      all: ['tests/nodeunit-tests.js']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Default task(s).
-  grunt.registerTask('test_all', ['jshint', 'qunit']);
-  grunt.registerTask('test', ['qunit']);
+  grunt.registerTask('test', ['qunit', 'nodeunit']);
+  grunt.registerTask('test_all', ['jshint', 'test']);
   grunt.registerTask('default', ['test']);
 };

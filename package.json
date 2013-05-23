@@ -30,6 +30,7 @@
     "grunt": "~0.4.1",
     "grunt-cli": "*",
     "grunt-contrib-jshint": "*",
+    "grunt-contrib-nodeunit": "*",
     "grunt-contrib-qunit": "*"
   },
   "scripts": {

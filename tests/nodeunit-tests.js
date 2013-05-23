@@ -1,11 +1,13 @@
-void function(datibbaw) {
+module.exports = (function(datibbaw) {
 
-test('Basic test', function() {
+return {
+
+basic: function(test) {
   var pubsub = datibbaw.PubSub();
 
 	var hits = 0,
 	hitter = function(event, data) {
-		equal(event, 'test', 'Passed');
+		test.equal(event, 'test', 'Passed');
 		hits += data;
 	};
 
@@ -13,15 +15,17 @@ test('Basic test', function() {
 	pubsub.trigger('test', 12);
 	pubsub.trigger('test', 10);
 
-	equal(hits, 22, "Subscriber called twice");
-});
+	test.equal(hits, 22, "Subscriber called twice");
 
-test('.once()', function() {
+	test.done();
+},
+
+'.once()': function(test) {
 	var pubsub = datibbaw.PubSub();
 
 	var hits = 0,
 	hitter = function(event, data) {
-		equal(event, 'test', 'Passed');
+		test.equal(event, 'test', 'Passed');
 		hits += data;
 	};
 
@@ -29,15 +33,17 @@ test('.once()', function() {
 	pubsub.trigger('test', 12);
 	pubsub.trigger('test', 10);
 
-	equal(hits, 12, "Subscriber called once");
-});
+	test.equal(hits, 12, "Subscriber called once");
 
-test('.off()', function() {
+	test.done();
+},
+
+'.off()': function(test) {
 	var pubsub = datibbaw.PubSub();
 
 	var hits = 0,
 	hitter = function(event, data) {
-		equal(event, 'test', 'Passed');
+		test.equal(event, 'test', 'Passed');
 		hits += data;
 	};
 
@@ -46,10 +52,12 @@ test('.off()', function() {
 	pubsub.off('test', hitter);
 	pubsub.trigger('test', 10);
 
-	equal(hits, 12, "Subscriber called once");
-});
+	test.equal(hits, 12, "Subscriber called once");
 
-test('Modified Object prototype', function() {
+	test.done();
+},
+
+'Modified Object prototype': function(test) {
 	var pubsub = datibbaw.PubSub(),
 	hits = 0,
 	p = Object.prototype;
@@ -60,12 +68,14 @@ test('Modified Object prototype', function() {
 
 	pubsub.trigger('test', 10);
 
-	equal(hits, 0, "Passed");
+	test.equal(hits, 0, "Passed");
 
 	delete p.x;
-});
 
-test('Special events', function() {
+	test.done();
+},
+
+'Special events': function(test) {
 	var pubsub = datibbaw.PubSub(),
 	hits = 0,
 	p = Object.prototype,
@@ -77,9 +87,13 @@ test('Special events', function() {
 
 	var x = {};
 
-	strictEqual(x.constructor[hitter.guid], void 0, "Passed");
+	test.strictEqual(x.constructor[hitter.guid], void 0, "Passed");
 
 	delete x.constructor[hitter.guid];
-});
 
-}(this);
+	test.done();
+}
+
+};
+
+})((typeof require == "function" && {PubSub: require('../src/pubsub.js')}) || this);
